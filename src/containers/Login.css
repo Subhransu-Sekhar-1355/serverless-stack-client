@@ -1,0 +1,23 @@
+.forgetPassword {
+    text-align: right;
+    padding-bottom: 5px;
+}
+
+.forgetPassword:hover {
+    cursor: pointer;
+}
+
+@media all and (min-width: 480px) {
+    .Login {
+        padding: 60px 0;
+    }
+
+    .Login form {
+        margin: 0 auto;
+        max-width: 320px;
+    }
+
+    .Login h2 {
+        padding-bottom: 25px;
+    }
+}
