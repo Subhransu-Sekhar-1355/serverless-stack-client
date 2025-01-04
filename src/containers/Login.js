@@ -5,9 +5,11 @@ import LoaderButton from "../components/LoaderButton";
 import { useAppContext } from "../libs/contextLib";
 import { useFormFields } from "../libs/hooksLib";
 import { onError } from "../libs/errorLib";
+import { useHistory } from "react-router-dom"
 import { LinkContainer } from "react-router-bootstrap";
 import "./Login.css";
 export default function Login() {
+    const history = useHistory();
     const { userHasAuthenticated } = useAppContext();
     const [isLoading, setIsLoading] = useState(false);
     const [fields, handleFieldChange] = useFormFields({
@@ -25,6 +27,7 @@ export default function Login() {
         try {
             await Auth.signIn(fields.email, fields.password);
             userHasAuthenticated(true);
+            history.push("/");
         } catch (e) {
             onError(e);
             setIsLoading(false);
